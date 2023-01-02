@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home/Home";
+import TodoTop from "./TodoTop/TodoTop";
+import Kakeibo from "./Kakeibo/Kakeibo"
 // import Register from "./Register";
 // import Login from "./Login";
 
@@ -8,6 +10,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path={`/`} element={<Home />} />
+        <Route path={`/todo`} element={<TodoTop />} />
+        <Route path={`/kakeibo`} element={<Kakeibo />} />
         <Route path={`/about/`} element={<About />} />
         <Route path={`/contact/`} element={<Contact />} />
       </Routes>
