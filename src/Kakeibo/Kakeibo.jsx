@@ -2,6 +2,7 @@ import { useEffect, useState, createContext } from "react";
 import { useForm } from "react-hook-form";
 import { EXPENSES } from "../const";
 import KakeiboItems from "../KakeiboItems/KakeiboItems";
+import NumberFormat from "react-number-format";
 
 export const DataContext = createContext();
 
@@ -10,6 +11,7 @@ export const DataContext = createContext();
  */
 const Kakeibo = () => {
   const [data, setData] = useState([]);
+  const [item, setItem] = useState({ title: "", money: "" });
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -56,14 +58,30 @@ const Kakeibo = () => {
   return (
     <>
       <DataContext.Provider value={{ data, setData }}>
+        <div>{item.title}</div>
+        <div>{item.money}</div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             タイトル
-            <input type="text" {...register("title")} />
+            <input
+              type="text"
+              value={item.title}
+              {...register("title", {
+                onChange: (e) =>
+                  setItem({ title: e.target.value, money: item.money }),
+              })}
+            />
           </div>
           <div>
             金額
-            <input type="text" {...register("money")} />
+            <input
+              type="text"
+              value={item.money}
+              {...register("money", {
+                onChange: (e) =>
+                  setItem({ title: item.title, money: e.target.value }),
+              })}
+            />
           </div>
           <select {...register("expenses")}>
             {EXPENSES.map((expense) => {
