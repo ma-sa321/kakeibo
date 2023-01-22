@@ -2,25 +2,36 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Stock = (props) => {
-  const { stock, onCheck } = props;
+  const { prevStock, onChange } = props;
+  const [stock, setStock] = useState(prevStock);
 
-  const handleChange = () => {
+  const deleteStock = () => {
     if (window.confirm("削除しますか？")) {
-      onCheck(stock);
+      setStock((prevStock) => ({ ...prevStock, isDelete: true }));
+      onChange(stock);
     }
+  };
+
+  const countUp = () => {
+    setStock((prevStock) => ({ ...prevStock, stock: stock.stock + 1 }));
+    onChange(stock);
+  };
+
+  const countDown = () => {
+    setStock((prevStock) => ({ ...prevStock, stock: stock.stock - 1 }));
+    onChange(stock);
   };
 
   return (
     <>
       <div>
         <label>
-          <input
-            type="checkbox"
-            checked={stock.delete}
-            onChange={handleChange}
-          />
+          <button onClick={deleteStock}>削除</button>
           <span>{stock.name}</span>
+          <span> /残 : {stock.stock}</span>
         </label>
+        <button onClick={countUp}>+1</button>
+        <button onClick={countDown}>-1</button>
       </div>
     </>
   );
