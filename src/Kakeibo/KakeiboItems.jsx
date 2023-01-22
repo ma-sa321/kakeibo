@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DataContext } from "../Kakeibo/Kakeibo";
+import { DataContext } from "./Kakeibo";
 
 /**
  * 家計簿の表示部分

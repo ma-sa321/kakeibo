@@ -1,7 +1,7 @@
 import { useEffect, useState, createContext } from "react";
 import { useForm } from "react-hook-form";
 import { EXPENSES } from "../const";
-import KakeiboItems from "../KakeiboItems/KakeiboItems";
+import KakeiboItems from "./KakeiboItems";
 import NumberFormat from "react-number-format";
 
 export const DataContext = createContext();
