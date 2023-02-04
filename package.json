@@ -1,4 +1,5 @@
 {
+  "homepage": "https://ma-sa321.github.io/kakeibo/",
   "name": "kakeibo",
   "version": "0.1.0",
   "private": true,
@@ -31,7 +32,7 @@
     "rm": "rm -rf docs",
     "mv": "mv build docs",
     "git": "git add . && git commit && git push origin main",
-    "deploy": "yarn run rm && yarn run build && yarn run mv"
+    "deploy": "yarn run rm && yarn run build && yarn run mv && gh-pages -d build && git add . && git commit -m 'build' && git push"
   },
   "eslintConfig": {
     "extends": [
