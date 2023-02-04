@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import InputStock from "./InputStock";
 import Stock from "./Stock";
+import "bulma/css/bulma.css";
+import "./Stock.scss";
 
 const StockTop = () => {
   const [stock, setStock] = useState([]);
@@ -53,13 +55,30 @@ const StockTop = () => {
   return (
     <>
       <InputStock onAdd={handleAdd} />
-      {stock.map((data) => {
-        if (data.isDelete == false) {
-          return (
-            <Stock key={data.key} prevStock={data} onChange={handleUpdate} />
-          );
-        }
-      })}
+      <table className="table">
+        <thead>
+          <tr>
+            <th>削除</th>
+            <th>名称</th>
+            <th>残数</th>
+          </tr>
+        </thead>
+        <tbody>
+          {stock
+            ? stock.map((data) => {
+                if (data.isDelete == false) {
+                  return (
+                    <Stock
+                      key={data.key}
+                      prevStock={data}
+                      onChange={handleUpdate}
+                    />
+                  );
+                }
+              })
+            : null}
+        </tbody>
+      </table>
     </>
   );
 };

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import "bulma/css/bulma.css";
+import { IconContext } from "react-icons";
+import { MdDelete } from "react-icons/md";
 
 const Stock = (props) => {
   const { prevStock, onChange } = props;
@@ -24,15 +27,26 @@ const Stock = (props) => {
 
   return (
     <>
-      <div>
-        <label>
-          <button onClick={deleteStock}>削除</button>
+      <tr className="table">
+        <td>
+          <IconContext.Provider value={{ size: "30px" }}>
+            <MdDelete onClick={deleteStock} />
+          </IconContext.Provider>
+        </td>
+        <td>
           <span>{stock.name}</span>
-          <span> /残 : {stock.stock}</span>
-        </label>
-        <button onClick={countUp}>+1</button>
-        <button onClick={countDown}>-1</button>
-      </div>
+        </td>
+        <td>
+          <span>{stock.stock}</span>
+        </td>
+
+        <button className="button is-light" onClick={countDown}>
+          -1
+        </button>
+        <button className="button is-light" onClick={countUp}>
+          +1
+        </button>
+      </tr>
     </>
   );
 };

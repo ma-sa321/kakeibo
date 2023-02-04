@@ -1,0 +1,15 @@
+* {
+  margin: 5px;
+}
+
+.input-stock {
+  display: inline-flex;
+}
+
+tr th {
+  vertical-align: middle;
+}
+
+th:nth-child(2) {
+  color: red;
+}
