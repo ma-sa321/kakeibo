@@ -9,7 +9,7 @@ const App = () => {
       <Routes>
         <Route path={`/`} element={<Stock />} />
         <Route path={`/todo`} element={<Todo />} />
-        <Route path={`/kakeibo`} element={<Kakeibo />} />
+        <Route path={`/kakeibo2`} element={<Kakeibo />} />
       </Routes>
     </BrowserRouter>
   );
