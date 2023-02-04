@@ -18,9 +18,14 @@ const KakeiboItems = () => {
     localStorage.setItem("kakeibo", setJson);
   };
 
-  return data.map((item) => {
-    return <KakeiboItem key={item.key} item={item} onChange={deleteCheck} />;
-  });
+  return (
+    <>
+      <div>hoge</div>
+    </>
+  );
+  // return data.map((item) => {
+  //   return <KakeiboItem key={item.key} item={item} onChange={deleteCheck} />;
+  // });
 };
 
 const KakeiboItem = ({ item, onChange }) => {
