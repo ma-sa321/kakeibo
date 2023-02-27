@@ -53,7 +53,7 @@ const StockTop = () => {
   };
 
   return (
-    <>
+    <div class="body">
       <InputStock onAdd={handleAdd} />
       <table className="table">
         <thead>
@@ -79,7 +79,7 @@ const StockTop = () => {
             : null}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 export default StockTop;

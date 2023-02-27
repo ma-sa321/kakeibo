@@ -33,19 +33,20 @@ const Stock = (props) => {
             <MdDelete onClick={deleteStock} />
           </IconContext.Provider>
         </td>
-        <td>
+        <td class="stock-text">
           <span>{stock.name}</span>
         </td>
-        <td>
+        <td class="stock-text">
           <span>{stock.stock}</span>
         </td>
-
-        <button className="button is-light" onClick={countDown}>
-          -1
-        </button>
-        <button className="button is-light" onClick={countUp}>
-          +1
-        </button>
+        <div>
+          <button className="button is-light" onClick={countDown}>
+            -1
+          </button>
+          <button className="button is-light count-button" onClick={countUp}>
+            +1
+          </button>
+        </div>
       </tr>
     </>
   );
